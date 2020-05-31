@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-font (font-spec :family "Monaco" :size 15))
+(setq doom-font (font-spec :family "Sarasa Fixed SC" :size 16))
 (setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -58,4 +58,13 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; svg viewer for org-roam
-(setq org-roam-graph-viewer "/usr/bin/open")
+(after! org-roam
+  (setq org-roam-graph-viewer "/usr/bin/open"))
+
+;; org-roam-server
+(use-package org-roam-server
+  :ensure t)
+
+;; python3
+(setq python-shell-interpreter "python3"
+      flycheck-python-pycompile-executable "python3")
