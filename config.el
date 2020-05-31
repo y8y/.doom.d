@@ -56,3 +56,6 @@
 
 ;; 最大化窗口
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; svg viewer for org-roam
+(setq org-roam-graph-viewer "/usr/bin/open")

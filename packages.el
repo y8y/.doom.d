@@ -49,7 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! racket-mode
-  :recipe (:host github
-           :repo "greghendershott/racket-mode"
-           :files ("*.el")))
+;; (package! racket-mode
+;;   :recipe (:host github
+;;            :repo "greghendershott/racket-mode"
+;;            :files ("*.el")))
