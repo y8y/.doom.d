@@ -25,7 +25,11 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-font (font-spec :family "Sarasa Fixed SC" :size 16))
+(set-face-attribute 'default nil :font "Sarasa Fixed SC 16")
+(dolist (charset '(kana han cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font)
+    charset (font-spec :family "Sarasa Fixed SC" :size 16)))
+;; (setq doom-font (font-spec :family "Monaco" :size 16))
 (setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -53,6 +57,11 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
+;; 本地代理
+(setq url-proxy-services
+   '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+     ("http" . "127.0.0.1:1087")
+     ("https" . "127.0.0.1:1087")))
 
 ;; 最大化窗口
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
