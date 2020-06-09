@@ -127,3 +127,14 @@
   :bind
   (("M-j" . pyim-convert-string-at-point) ;与 pyim-probe-dynamic-english 配合
    ("C-;" . pyim-delete-word-from-personal-buffer)))
+
+;; 使用xelatex一步生成PDF，不是org-latex-to-pdf-process这个命令
+(setq org-latex-pdf-process
+  '(
+    "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+    "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+    "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+    "rm -fr %b.out %b.log %b.tex auto"
+    ))
+;; 设置默认后端为 `xelatex'
+(setq org-latex-compiler "xelatex")
