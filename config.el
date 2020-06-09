@@ -138,3 +138,10 @@
     ))
 ;; 设置默认后端为 `xelatex'
 (setq org-latex-compiler "xelatex")
+
+;; plantuml
+(setq plantuml-jar-path "~/soft/jar/plantuml.jar")
+(setq org-plantuml-jar-path "~/soft/jar/plantuml.jar")
+(setq plantuml-default-exec-mode 'jar)
+(org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
+(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
