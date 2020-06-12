@@ -32,7 +32,7 @@
  '(default ((t :family "Sarasa Fixed SC" :size 16))))
 (dolist (charset '(kana han cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
-    charset (font-spec :family "Sarasa Fixed SC" :size 16)))
+                    charset (font-spec :family "Sarasa Fixed SC" :size 16)))
 
 ;; (setq doom-font (font-spec :family "Monaco" :size 16))
 (setq doom-theme 'doom-one)
@@ -64,9 +64,9 @@
 ;; they are implemented.
 ;; 本地代理
 (setq url-proxy-services
-   '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-     ("http" . "127.0.0.1:1087")
-     ("https" . "127.0.0.1:1087")))
+      '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+        ("http" . "127.0.0.1:1087")
+        ("https" . "127.0.0.1:1087")))
 
 ;; 最大化窗口
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -130,12 +130,12 @@
 
 ;; 使用xelatex一步生成PDF，不是org-latex-to-pdf-process这个命令
 (setq org-latex-pdf-process
-  '(
-    "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-    "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-    "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-    "rm -fr %b.out %b.log %b.tex auto"
-    ))
+      '(
+        "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "rm -fr %b.out %b.log %b.tex auto"
+        ))
 ;; 设置默认后端为 `xelatex'
 (setq org-latex-compiler "xelatex")
 
