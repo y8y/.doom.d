@@ -64,7 +64,7 @@
 ;; they are implemented.
 ;; 本地代理
 (setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+      '(("no_proxy" . "^\\(localhost\\|127.0.0.1\\|10\\..*\\|192\\.168\\..*\\)")
         ("http" . "127.0.0.1:1087")
         ("https" . "127.0.0.1:1087")))
 
