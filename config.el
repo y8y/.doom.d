@@ -29,6 +29,10 @@
 ;; 编辑器字体
 (set-face-attribute 'default nil :font "Sarasa Fixed SC 16")
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t :family "Sarasa Fixed SC" :size 16))))
 (dolist (charset '(kana han cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
@@ -63,10 +67,10 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 ;; 本地代理
-(setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|127.0.0.1\\|10\\..*\\|192\\.168\\..*\\)")
-        ("http" . "127.0.0.1:1087")
-        ("https" . "127.0.0.1:1087")))
+;; (setq url-proxy-services
+;;       '(("no_proxy" . "^\\(localhost\\|127.0.0.1\\|10\\..*\\|192\\.168\\..*\\)")
+;;         ("http" . "127.0.0.1:1087")
+;;         ("https" . "127.0.0.1:1087")))
 
 ;; 最大化窗口
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -145,3 +149,9 @@
 (setq plantuml-default-exec-mode 'jar)
 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
 (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(url-proxy-services nil))
