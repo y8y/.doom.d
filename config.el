@@ -154,4 +154,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(pyim org-roam-server anaconda-mode))
  '(url-proxy-services nil))
+
+;; org bold selected word
+(defun bold-region-or-point ()
+  (interactive)
+  (if (region-active-p)
+      (progn
+        (goto-char (region-end))
+        (insert "* ")
+        (goto-char (region-beginning))
+        (insert " *"))
+    (insert "**")
+    (backward-char)))
+(define-key global-map (kbd "s-b") 'bold-region-or-point)
