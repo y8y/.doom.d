@@ -39,7 +39,7 @@
                     charset (font-spec :family "Sarasa Fixed SC" :size 16)))
 
 ;; (setq doom-font (font-spec :family "Monaco" :size 16))
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-gruvbox)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -83,34 +83,6 @@
 (use-package org-roam-server
   :ensure t)
 
-;; 自动切换输入法
-(use-package smart-input-source
-  :init
-  ;; set the english input source
-  (setq smart-input-source-english
-        "com.apple.keylayout.ABC")
-  ;; set the default other language input source for all buffer
-  (setq-default smart-input-source-other
-                "com.sogou.inputmethod.sogou.pinyin")
-  ;; customize your own triggers, the /hint-mode/ may help.
-  ;; (push 'YOUR-COMMAND smart-input-source-preserve-save-triggers)
-
-  ;; :hook
-  ;; enable the /follow context/ and /inline region/ mode for specific buffers
-  ;; (((text-mode prog-mode) . smart-input-source-follow-context-mode)
-  ;;  ((text-mode prog-mode) . smart-input-source-inline-mode))
-
-  :config
-  ;; enable the /cursor color/ mode
-  (smart-input-source-global-cursor-color-mode t)
-  ;; enable the /respect/ mode
-  (smart-input-source-global-respect-mode t)
-  ;; enable the /follow context/ mode for all buffers
-  (smart-input-source-global-follow-context-mode t)
-  ;; enable the /inline english/ mode for all buffers
-  (smart-input-source-global-inline-mode t)
-  )
-
 ;; python3
 (setq python-shell-interpreter "python3"
       flycheck-python-pycompile-executable "python3")
@@ -132,13 +104,6 @@
 (setq plantuml-default-exec-mode 'jar)
 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
 (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(smart-input-source org-roam-server anaconda-mode))
- '(url-proxy-services nil))
 
 ;; org bold selected word
 (defun bold-region-or-point ()
@@ -152,3 +117,10 @@
     (insert "**")
     (backward-char)))
 (define-key global-map (kbd "s-b") 'bold-region-or-point)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("e2acbf379aa541e07373395b977a99c878c30f20c3761aac23e9223345526bcc" "0cb1b0ea66b145ad9b9e34c850ea8e842c4c4c83abe04e37455a1ef4cc5b8791" "be9645aaa8c11f76a10bcf36aaf83f54f4587ced1b9b679b55639c87404e2499" default)))
