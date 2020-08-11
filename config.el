@@ -72,6 +72,8 @@
 ;;         ("http" . "127.0.0.1:1087")
 ;;         ("https" . "127.0.0.1:1087")))
 
+(load! "kbd")
+
 ;; 最大化窗口
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
@@ -125,3 +127,34 @@
  '(custom-safe-themes
    '("e2acbf379aa541e07373395b977a99c878c30f20c3761aac23e9223345526bcc" "0cb1b0ea66b145ad9b9e34c850ea8e842c4c4c83abe04e37455a1ef4cc5b8791" "be9645aaa8c11f76a10bcf36aaf83f54f4587ced1b9b679b55639c87404e2499" default))
  '(package-selected-packages '(org-roam-server)))
+
+;; 设置tab默认行为
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+
+;; emacs smart input source
+(use-package sis
+  ;; :hook
+  ;; enable the /follow context/ and /inline region/ mode for specific buffers
+  ;; (((text-mode prog-mode) . sis-follow-context-mode)
+  ;;  ((text-mode prog-mode) . sis-inline-mode))
+
+  :config
+  (sis-ism-lazyman-config
+   "com.apple.keylayout.ABC"
+   ;; "com.apple.keylayout.US"
+   ;; "im.rime.inputmethod.Squirrel.Rime"
+   "com.sogou.inputmethod.sogou.pinyin")
+
+  ;; enable the /cursor color/ mode
+  ;; 光标颜色指示
+  ;; 1. 绿色：中文
+  ;; 2. 白色：英文
+  (sis-global-cursor-color-mode t)
+  ;; enable the /respect/ mode
+  (sis-global-respect-mode t)
+  ;; enable the /follow context/ mode for all buffers
+  (sis-global-follow-context-mode t)
+  ;; enable the /inline english/ mode for all buffers
+  (sis-global-inline-mode t)
+  )
