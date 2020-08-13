@@ -53,3 +53,6 @@
 ;;   :recipe (:host github
 ;;            :repo "greghendershott/racket-mode"
 ;;            :files ("*.el")))
+
+(package! sis)
+(package! org-roam-server)
