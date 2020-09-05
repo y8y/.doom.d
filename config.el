@@ -66,11 +66,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
-;; 本地代理
-;; (setq url-proxy-services
-;;       '(("no_proxy" . "^\\(localhost\\|127.0.0.1\\|10\\..*\\|192\\.168\\..*\\)")
-;;         ("http" . "127.0.0.1:1087")
-;;         ("https" . "127.0.0.1:1087")))
 
 (load! "kbd")
 
@@ -82,8 +77,7 @@
   (setq org-roam-graph-viewer "/usr/bin/open"))
 
 ;; org-roam-server
-(use-package org-roam-server
-  :ensure t)
+(use-package org-roam-server)
 
 ;; python3
 (setq python-shell-interpreter "python3"
@@ -119,6 +113,23 @@
     (insert "**")
     (backward-char)))
 (define-key global-map (kbd "s-b") 'bold-region-or-point)
+
+;; proxy
+(defun my-proxy-on ()
+  (interactive)
+  (setq url-using-proxy t)
+  (setq url-proxy-services
+        '(
+          ("no_proxy" . "^\\(localhost\\|10.*\\|172.*\\|192.*\\)")
+          ("http" . "127.0.0.1:1087")
+          ("https" . "127.0.0.1:1087")
+          )))
+
+(defun my-proxy-off ()
+  (interactive)
+  (setq url-using-proxy nil)
+  (setq url-proxy-services nil))
+
 ;; (custom-set-variables
 ;;  ;; custom-set-variables was added by Custom.
 ;;  ;; If you edit it by hand, you could mess it up, so be careful.
