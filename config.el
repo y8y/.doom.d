@@ -115,6 +115,7 @@
 (define-key global-map (kbd "s-b") 'bold-region-or-point)
 
 ;; proxy
+;; 注意：代理地址前面不要加 schema ，比如 http / https
 (defun my-proxy-on ()
   (interactive)
   (setq url-using-proxy t)
@@ -169,3 +170,6 @@
   ;; enable the /inline english/ mode for all buffers
   (sis-global-inline-mode t)
   )
+
+;; org 禁用下划线上标
+(setq org-export-with-sub-superscripts nil)
