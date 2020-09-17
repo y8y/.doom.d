@@ -156,7 +156,9 @@
    "com.apple.keylayout.ABC"
    ;; "com.apple.keylayout.US"
    ;; "im.rime.inputmethod.Squirrel.Rime"
-   "com.sogou.inputmethod.sogou.pinyin")
+   "com.sogou.inputmethod.sogou.pinyin"
+   ;; "com.apple.inputmethod.SCIM.ITABC"
+   )
 
   ;; enable the /cursor color/ mode
   ;; 光标颜色指示
