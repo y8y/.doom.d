@@ -175,3 +175,11 @@
 
 ;; org 禁用下划线上标
 (setq org-export-with-sub-superscripts nil)
+
+;; Overwrite `deft-current-files` for the `deft-buffer-setup` and limit it to 30 entries
+(defun my-deft-limiting-fn (orig-fun &rest args)
+  (let
+      ((deft-current-files (-take 50 deft-current-files)))
+    (apply orig-fun args)))
+
+(advice-add 'deft-buffer-setup :around #'my-deft-limiting-fn)
