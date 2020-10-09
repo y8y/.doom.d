@@ -183,3 +183,8 @@
     (apply orig-fun args)))
 
 (advice-add 'deft-buffer-setup :around #'my-deft-limiting-fn)
+
+;; deft
+(setq deft-directory "~/.deft"
+      deft-extensions '("org" "txt" "md")
+      deft-recursive t)
