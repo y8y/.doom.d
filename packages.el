@@ -56,3 +56,4 @@
 
 (package! sis)
 (package! org-roam-server)
+(package! sqlformat)

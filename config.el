@@ -168,7 +168,7 @@
   ;; enable the /respect/ mode
   (sis-global-respect-mode t)
   ;; enable the /follow context/ mode for all buffers
-  (sis-global-follow-context-mode t)
+  (sis-global-context-mode t)
   ;; enable the /inline english/ mode for all buffers
   (sis-global-inline-mode t)
   )
@@ -192,3 +192,7 @@
 ;; 自动折行
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+
+;; sqlformat
+(setq sqlformat-command 'pgformatter)
+(setq sqlformat-args '("-s2" "-g"))
