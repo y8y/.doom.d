@@ -40,6 +40,8 @@
 
 ;; (setq doom-font (font-spec :family "Monaco" :size 16))
 (setq doom-theme 'doom-gruvbox)
+;; (setq doom-theme 'doom-monokai-pro)
+;; (setq doom-theme 'doom-one-light)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -176,6 +178,7 @@
 ;; org 禁用下划线上标
 (setq org-export-with-sub-superscripts nil)
 
+;; deft
 ;; Overwrite `deft-current-files` for the `deft-buffer-setup` and limit it to 30 entries
 (defun my-deft-limiting-fn (orig-fun &rest args)
   (let
@@ -184,10 +187,11 @@
 
 (advice-add 'deft-buffer-setup :around #'my-deft-limiting-fn)
 
-;; deft
 (setq deft-directory "~/.deft"
       deft-extensions '("org" "txt" "md")
       deft-recursive t)
+(setq deft-use-filename-as-title t)
+(setq deft-use-filter-string-for-filename nil)
 
 ;; 自动折行
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
