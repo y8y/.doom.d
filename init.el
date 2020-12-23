@@ -106,7 +106,7 @@
 
        :os
        (:if IS-MAC macos)
-       tty
+       ;;tty
 
        :lang
        ;;agda              ; types of types of types of types...

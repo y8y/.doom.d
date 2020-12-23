@@ -200,3 +200,6 @@
 ;; sqlformat
 (setq sqlformat-command 'pgformatter)
 (setq sqlformat-args '("-s2" "-g"))
+
+;; 图片缓存时间
+(setq image-cache-eviction-delay 28800)
