@@ -182,7 +182,7 @@
 ;; Overwrite `deft-current-files` for the `deft-buffer-setup` and limit it to 30 entries
 (defun my-deft-limiting-fn (orig-fun &rest args)
   (let
-      ((deft-current-files (-take 50 deft-current-files)))
+      ((deft-current-files (-take 200 deft-current-files)))
     (apply orig-fun args)))
 
 (advice-add 'deft-buffer-setup :around #'my-deft-limiting-fn)
@@ -192,10 +192,16 @@
       deft-recursive t)
 (setq deft-use-filename-as-title t)
 (setq deft-use-filter-string-for-filename nil)
+;; (setq deft-strip-title-regexp "")
+;; (setq deft-org-mode-title-prefix nil)
+;; (setq deft-strip-summary-regexp nil)
 
 ;; 自动折行
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
-(add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+;; (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+
+;; org-bullets
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; sqlformat
 (setq sqlformat-command 'pgformatter)
