@@ -39,9 +39,9 @@
                     charset (font-spec :family "Sarasa Fixed SC" :size 16)))
 
 ;; (setq doom-font (font-spec :family "Monaco" :size 16))
-(setq doom-theme 'doom-gruvbox)
+;; (setq doom-theme 'doom-gruvbox)
 ;; (setq doom-theme 'doom-monokai-pro)
-;; (setq doom-theme 'doom-one-light)
+(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -202,6 +202,10 @@
 
 ;; org-bullets
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;; org-agenda
+(setq org-agenda-weekend-days '(5 6))
+(setq calendar-weekend-days '(5 6))
 
 ;; sqlformat
 (setq sqlformat-command 'pgformatter)
