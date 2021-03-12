@@ -213,3 +213,11 @@
 
 ;; 图片缓存时间
 (setq image-cache-eviction-delay 28800)
+
+;; super-save 自动保存
+(use-package super-save
+  :ensure t
+  :config
+  (super-save-mode +1)
+  (setq super-save-auto-save-when-idle t)
+  (setq super-save-idle-duration 5))
