@@ -9,7 +9,7 @@
  '(org-agenda-files '("~/org-agenda/"))
  '(org-agenda-start-on-weekday 1)
  '(org-roam-server-network-poll nil)
- '(package-selected-packages '(super-save org-bullets org-roam-server sis))
+ '(package-selected-packages '(rjsx-mode super-save org-bullets org-roam-server sis))
  '(url-proxy-services nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

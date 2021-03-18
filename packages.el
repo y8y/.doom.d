@@ -59,3 +59,4 @@
 (package! sqlformat)
 (package! org-bullets)
 (package! super-save)
+(package! rjsx-mode)
