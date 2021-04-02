@@ -54,7 +54,7 @@
 ;;            :repo "greghendershott/racket-mode"
 ;;            :files ("*.el")))
 
-(package! sis)
+;; (package! sis)
 (package! org-roam-server)
 (package! sqlformat)
 (package! org-bullets)

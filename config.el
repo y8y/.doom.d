@@ -147,33 +147,33 @@
 (setq-default tab-width 2)
 
 ;; emacs smart input source
-(use-package sis
-  ;; :hook
-  ;; enable the /follow context/ and /inline region/ mode for specific buffers
-  ;; (((text-mode prog-mode) . sis-follow-context-mode)
-  ;;  ((text-mode prog-mode) . sis-inline-mode))
+;; (use-package sis
+;;   ;; :hook
+;;   ;; enable the /follow context/ and /inline region/ mode for specific buffers
+;;   ;; (((text-mode prog-mode) . sis-follow-context-mode)
+;;   ;;  ((text-mode prog-mode) . sis-inline-mode))
 
-  :config
-  (sis-ism-lazyman-config
-   "com.apple.keylayout.ABC"
-   ;; "com.apple.keylayout.US"
-   ;; "im.rime.inputmethod.Squirrel.Rime"
-   "com.sogou.inputmethod.sogou.pinyin"
-   ;; "com.apple.inputmethod.SCIM.ITABC"
-   )
+;;   :config
+;;   (sis-ism-lazyman-config
+;;    "com.apple.keylayout.ABC"
+;;    ;; "com.apple.keylayout.US"
+;;    ;; "im.rime.inputmethod.Squirrel.Rime"
+;;    "com.sogou.inputmethod.sogou.pinyin"
+;;    ;; "com.apple.inputmethod.SCIM.ITABC"
+;;    )
 
-  ;; enable the /cursor color/ mode
-  ;; 光标颜色指示
-  ;; 1. 绿色：中文
-  ;; 2. 白色：英文
-  (sis-global-cursor-color-mode t)
-  ;; enable the /respect/ mode
-  (sis-global-respect-mode t)
-  ;; enable the /follow context/ mode for all buffers
-  (sis-global-context-mode t)
-  ;; enable the /inline english/ mode for all buffers
-  (sis-global-inline-mode t)
-  )
+;;   ;; enable the /cursor color/ mode
+;;   ;; 光标颜色指示
+;;   ;; 1. 绿色：中文
+;;   ;; 2. 白色：英文
+;;   (sis-global-cursor-color-mode t)
+;;   ;; enable the /respect/ mode
+;;   (sis-global-respect-mode t)
+;;   ;; enable the /follow context/ mode for all buffers
+;;   (sis-global-context-mode t)
+;;   ;; enable the /inline english/ mode for all buffers
+;;   (sis-global-inline-mode t)
+;;   )
 
 ;; org 禁用下划线上标
 (setq org-export-with-sub-superscripts nil)
@@ -196,9 +196,9 @@
 ;; (setq deft-org-mode-title-prefix nil)
 ;; (setq deft-strip-summary-regexp nil)
 
-;; 自动折行
+;; 自动填充折行
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
-;; (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+(add-hook 'markdown-mode-hook 'turn-on-auto-fill)
 
 ;; org-bullets
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
@@ -220,4 +220,23 @@
   :config
   (super-save-mode +1)
   (setq super-save-auto-save-when-idle t)
-  (setq super-save-idle-duration 5))
+  (setq super-save-idle-duration 3))
+
+;; disable company for org
+(setq company-global-modes '(not org-mode))
+
+;; jsx support
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
+
+;; 自动切换输入法
+(defun my/change-input-to-english ()
+  (message "change input to english")
+  (shell-command "macism com.apple.keylayout.ABC"))
+(add-hook 'evil-insert-state-exit-hook 'my/change-input-to-english)
+
+;; Fancy titlebar for MacOS
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+(setq ns-use-proxy-icon  nil)
+(setq frame-title-format nil)
