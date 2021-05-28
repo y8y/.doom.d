@@ -27,7 +27,7 @@
 ;; `load-theme' function. This is the default:
 
 ;; 编辑器字体
-(set-face-attribute 'default nil :font "Sarasa Fixed SC 16")
+(set-face-attribute 'default nil :font "Sarasa Fixed SC 18")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -36,7 +36,7 @@
  '(default ((t :family "Sarasa Fixed SC" :size 16))))
 (dolist (charset '(kana han cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
-                    charset (font-spec :family "Sarasa Fixed SC" :size 16)))
+                    charset (font-spec :family "Sarasa Fixed SC" :size 18)))
 
 ;; (setq doom-font (font-spec :family "Monaco" :size 16))
 ;; (setq doom-theme 'doom-gruvbox)
@@ -190,11 +190,6 @@
 (setq deft-directory "~/.deft"
       deft-extensions '("org" "txt" "md")
       deft-recursive t)
-(setq deft-use-filename-as-title t)
-(setq deft-use-filter-string-for-filename nil)
-;; (setq deft-strip-title-regexp "")
-;; (setq deft-org-mode-title-prefix nil)
-;; (setq deft-strip-summary-regexp nil)
 
 ;; 自动填充折行
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
@@ -232,11 +227,21 @@
 ;; 自动切换输入法
 (defun my/change-input-to-english ()
   (message "change input to english")
-  (shell-command "macism com.apple.keylayout.ABC"))
+  (with-temp-buffer
+    (shell-command "macism com.apple.keylayout.ABC" t)))
 (add-hook 'evil-insert-state-exit-hook 'my/change-input-to-english)
 
-;; Fancy titlebar for MacOS
+;; title bar 优化
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-(setq ns-use-proxy-icon  nil)
-(setq frame-title-format nil)
+(setq ns-use-proxy-icon nil)
+(setq-default frame-title-format
+              '(:eval
+                (format "%s"
+                        (cond
+                         (buffer-file-truename
+                          (concat "(" buffer-file-truename ")"))
+                         (dired-directory
+                          (concat "{" dired-directory "}"))
+                         (t
+                          "[no file]")))))
