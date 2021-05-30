@@ -191,6 +191,8 @@
       deft-extensions '("org" "txt" "md")
       deft-recursive t)
 
+(setq deft-use-filename-as-title t)
+
 ;; 自动填充折行
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
