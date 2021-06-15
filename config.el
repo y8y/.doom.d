@@ -116,6 +116,18 @@
     (backward-char)))
 (define-key global-map (kbd "s-b") 'bold-region-or-point)
 
+(defun bold-region-or-point-without-space ()
+  (interactive)
+  (if (region-active-p)
+      (progn
+        (goto-char (region-end))
+        (insert "*")
+        (goto-char (region-beginning))
+        (insert "*"))
+    (insert "**")
+    (backward-char)))
+(define-key global-map (kbd "s-B") 'bold-region-or-point-without-space)
+
 ;; proxy
 ;; 注意：代理地址前面不要加 schema ，比如 http / https
 (defun my-proxy-on ()
@@ -217,7 +229,7 @@
   :config
   (super-save-mode +1)
   (setq super-save-auto-save-when-idle t)
-  (setq super-save-idle-duration 3))
+  (setq super-save-idle-duration 5))
 
 ;; disable company for org
 (setq company-global-modes '(not org-mode))
@@ -231,6 +243,7 @@
   (message "change input to english")
   (with-temp-buffer
     (shell-command "macism com.apple.keylayout.ABC" t)))
+;; (advice-add 'evil-force-normal-state :around #'my/change-input-to-english)
 (add-hook 'evil-insert-state-exit-hook 'my/change-input-to-english)
 
 ;; title bar 优化
