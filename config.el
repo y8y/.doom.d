@@ -240,23 +240,23 @@
 
 ;; 自动切换输入法
 (defun my/change-input-to-english ()
-  (message "change input to english")
-  (with-temp-buffer
-    (shell-command "macism com.apple.keylayout.ABC" t)))
-;; (advice-add 'evil-force-normal-state :around #'my/change-input-to-english)
+  (when (not (evil-insert-state-p evil-next-state))
+    (message "change input to english")
+    (with-temp-buffer
+      (shell-command "macism com.apple.keylayout.ABC" t))))
 (add-hook 'evil-insert-state-exit-hook 'my/change-input-to-english)
 
 ;; title bar 优化
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
-(setq ns-use-proxy-icon nil)
-(setq-default frame-title-format
-              '(:eval
-                (format "%s"
-                        (cond
-                         (buffer-file-truename
-                          (concat "(" buffer-file-truename ")"))
-                         (dired-directory
-                          (concat "{" dired-directory "}"))
-                         (t
-                          "[no file]")))))
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
+;; (setq ns-use-proxy-icon nil)
+;; (setq-default frame-title-format
+;;               '(:eval
+;;                 (format "%s"
+;;                         (cond
+;;                          (buffer-file-truename
+;;                           (concat "(" buffer-file-truename ")"))
+;;                          (dired-directory
+;;                           (concat "{" dired-directory "}"))
+;;                          (t
+;;                           "[no file]")))))
