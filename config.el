@@ -206,11 +206,13 @@
 (setq deft-use-filename-as-title t)
 
 ;; 自动填充折行
+(setq-default fill-column 120)
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
 
 ;; org-bullets
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(setq org-num-max-level 3)
 
 ;; org-agenda
 (setq org-agenda-weekend-days '(5 6))
@@ -232,7 +234,7 @@
   (setq super-save-idle-duration 5))
 
 ;; disable company for org
-(setq company-global-modes '(not org-mode))
+(setq company-global-modes '(not org-mode sh-mode))
 
 ;; jsx support
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
@@ -260,3 +262,7 @@
 ;;                           (concat "{" dired-directory "}"))
 ;;                          (t
 ;;                           "[no file]")))))
+
+;; 解决 modeline CPU 高负载
+;; 参考：https://github.com/seagle0128/doom-modeline/issues/32
+(setq doom-modeline-buffer-file-name-style 'file-name)
