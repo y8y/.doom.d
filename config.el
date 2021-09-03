@@ -26,17 +26,19 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 
-;; 编辑器字体
-(set-face-attribute 'default nil :font "Sarasa Fixed SC 18")
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t :family "Sarasa Fixed SC" :size 16))))
-(dolist (charset '(kana han cjk-misc bopomofo))
-  (set-fontset-font (frame-parameter nil 'font)
-                    charset (font-spec :family "Sarasa Fixed SC" :size 18)))
+(cond ((display-graphic-p)
+       ;; 编辑器字体
+       (set-face-attribute 'default nil :font "Sarasa Fixed SC 18")
+       (custom-set-faces
+        ;; custom-set-faces was added by Custom.
+        ;; If you edit it by hand, you could mess it up, so be careful.
+        ;; Your init file should contain only one such instance.
+        ;; If there is more than one, they won't work right.
+        '(default ((t :family "Sarasa Fixed SC" :size 16))))
+       (dolist (charset '(kana han cjk-misc bopomofo))
+         (set-fontset-font (frame-parameter nil 'font)
+                           charset (font-spec :family "Sarasa Fixed SC" :size 18)))
+       ))
 
 ;; (setq doom-font (font-spec :family "Monaco" :size 16))
 ;; (setq doom-theme 'doom-gruvbox)
@@ -75,11 +77,11 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; svg viewer for org-roam
-(after! org-roam
-  (setq org-roam-graph-viewer "/usr/bin/open"))
+;; (after! org-roam
+;;   (setq org-roam-graph-viewer "/usr/bin/open"))
 
 ;; org-roam-server
-(use-package org-roam-server)
+;; (use-package org-roam-server)
 
 ;; python3
 (setq python-shell-interpreter "python3"
@@ -234,7 +236,9 @@
   (setq super-save-idle-duration 5))
 
 ;; disable company for org
-(setq company-global-modes '(not org-mode sh-mode))
+;; (setq company-global-modes '(not org-mode sh-mode))
+(setq company-global-modes '(not sh-mode))
+(setq company-minimum-prefix-length 3)
 
 ;; jsx support
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
@@ -265,4 +269,4 @@
 
 ;; 解决 modeline CPU 高负载
 ;; 参考：https://github.com/seagle0128/doom-modeline/issues/32
-(setq doom-modeline-buffer-file-name-style 'file-name)
+;; (setq doom-modeline-buffer-file-name-style 'file-name)
