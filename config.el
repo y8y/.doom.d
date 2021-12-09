@@ -82,6 +82,20 @@
 
 ;; org-roam-server
 ;; (use-package org-roam-server)
+(use-package! websocket
+    :after org-roam)
+
+(use-package! org-roam-ui
+    :after org-roam ;; or :after org
+;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;;         a hookable mode anymore, you're advised to pick something yourself
+;;         if you don't care about startup time, use
+;;  :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
 
 ;; python3
 (setq python-shell-interpreter "python3"
@@ -118,7 +132,7 @@
 (add-to-list 'image-type-file-name-regexps '("\\.pdf\\'" . imagemagick))
 (add-to-list 'image-file-name-extensions "pdf")
 (setq imagemagick-types-inhibit (remove 'PDF imagemagick-types-inhibit))
-(setq org-image-actual-width 600)
+;; (setq org-image-actual-width 600)
 
 ;; plantuml
 (setq plantuml-jar-path "~/soft/jar/plantuml.jar")
@@ -241,6 +255,7 @@
 ;; org-agenda
 (setq org-agenda-weekend-days '(5 6))
 (setq calendar-weekend-days '(5 6))
+(setq org-agenda-files '("~/org-agenda/"))
 
 ;; sqlformat
 (setq sqlformat-command 'pgformatter)
@@ -250,12 +265,12 @@
 (setq image-cache-eviction-delay 28800)
 
 ;; super-save 自动保存
-(use-package super-save
-  :ensure t
-  :config
-  (super-save-mode +1)
-  (setq super-save-auto-save-when-idle t)
-  (setq super-save-idle-duration 5))
+;; (use-package super-save
+;;   :ensure t
+;;   :config
+;;   (super-save-mode +1)
+;;   (setq super-save-auto-save-when-idle t)
+;;   (setq super-save-idle-duration 5))
 
 ;; disable company for org
 (setq company-global-modes '(not org-mode sh-mode))
@@ -292,3 +307,6 @@
 ;; 解决 modeline CPU 高负载
 ;; 参考：https://github.com/seagle0128/doom-modeline/issues/32
 ;; (setq doom-modeline-buffer-file-name-style 'file-name)
+
+;; show icon for major mode
+(setq doom-modeline-major-mode-icon t)

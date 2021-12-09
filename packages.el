@@ -58,5 +58,9 @@
 ;; (package! org-roam-server)
 (package! sqlformat)
 (package! org-bullets)
-(package! super-save)
+;; (package! super-save)
 (package! rjsx-mode)
+
+;; form org roam
+(unpin! org-roam)
+(package! org-roam-ui)
