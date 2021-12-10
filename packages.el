@@ -61,6 +61,5 @@
 ;; (package! super-save)
 (package! rjsx-mode)
 
-;; form org roam
-(unpin! org-roam)
+;; org roam
 (package! org-roam-ui)
