@@ -73,23 +73,10 @@
 
 (load! "kbd")
 
+(load! "roam")
+
 ;; 最大化窗口
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-(use-package! websocket
-    :after org-roam)
-
-(use-package! org-roam-ui
-    :after org-roam ;; or :after org
-;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-;;         a hookable mode anymore, you're advised to pick something yourself
-;;         if you don't care about startup time, use
-;;  :hook (after-init . org-roam-ui-mode)
-    :config
-    (setq org-roam-ui-sync-theme t
-          org-roam-ui-follow t
-          org-roam-ui-update-on-save t
-          org-roam-ui-open-on-start t))
 
 ;; python3
 (setq python-shell-interpreter "python3"
@@ -229,7 +216,7 @@
 (setq deft-use-filename-as-title t)
 
 ;; 自动填充折行
-(setq-default fill-column 120)
+(setq-default fill-column 100)
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
 
@@ -241,6 +228,9 @@
 (setq org-agenda-weekend-days '(5 6))
 (setq calendar-weekend-days '(5 6))
 (setq org-agenda-files '("~/org-agenda/"))
+
+;; https://www.emacswiki.org/emacs/TruncateLines
+(add-hook 'org-mode-hook (lambda() (set 'truncate-lines t)))
 
 ;; sqlformat
 (setq sqlformat-command 'pgformatter)
