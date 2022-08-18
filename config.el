@@ -93,11 +93,11 @@
 ;; 设置默认后端为 `xelatex'
 (setq org-latex-compiler "xelatex")
 (with-eval-after-load 'ox-latex
- ;; http://orgmode.org/worg/org-faq.html#using-xelatex-for-pdf-export
- ;; latexmk runs pdflatex/xelatex (whatever is specified) multiple times
- ;; automatically to resolve the cross-references.
- (setq org-latex-pdf-process '("latexmk -xelatex -quiet -shell-escape -f %f"))
- (add-to-list 'org-latex-classes
+  ;; http://orgmode.org/worg/org-faq.html#using-xelatex-for-pdf-export
+  ;; latexmk runs pdflatex/xelatex (whatever is specified) multiple times
+  ;; automatically to resolve the cross-references.
+  (setq org-latex-pdf-process '("latexmk -xelatex -quiet -shell-escape -f %f"))
+  (add-to-list 'org-latex-classes
                '("elegantpaper"
                  "\\documentclass[lang=cn]{elegantpaper}
                  [NO-DEFAULT-PACKAGES]
@@ -168,35 +168,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
-;; emacs smart input source
-;; (use-package sis
-;;   ;; :hook
-;;   ;; enable the /follow context/ and /inline region/ mode for specific buffers
-;;   ;; (((text-mode prog-mode) . sis-follow-context-mode)
-;;   ;;  ((text-mode prog-mode) . sis-inline-mode))
-
-;;   :config
-;;   (sis-ism-lazyman-config
-;;    "com.apple.keylayout.ABC"
-;;    ;; "com.apple.keylayout.US"
-;;    ;; "im.rime.inputmethod.Squirrel.Rime"
-;;    "com.sogou.inputmethod.sogou.pinyin"
-;;    ;; "com.apple.inputmethod.SCIM.ITABC"
-;;    )
-
-;;   ;; enable the /cursor color/ mode
-;;   ;; 光标颜色指示
-;;   ;; 1. 绿色：中文
-;;   ;; 2. 白色：英文
-;;   (sis-global-cursor-color-mode t)
-;;   ;; enable the /respect/ mode
-;;   (sis-global-respect-mode t)
-;;   ;; enable the /follow context/ mode for all buffers
-;;   (sis-global-context-mode t)
-;;   ;; enable the /inline english/ mode for all buffers
-;;   (sis-global-inline-mode t)
-;;   )
-
 ;; org 禁用下划线上标
 (setq org-export-with-sub-superscripts nil)
 
@@ -210,13 +181,13 @@
 (advice-add 'deft-buffer-setup :around #'my-deft-limiting-fn)
 
 (setq deft-directory "~/.deft"
-      deft-extensions '("org" "txt" "md")
+      deft-extensions '("org" "txt")
       deft-recursive t)
 
 (setq deft-use-filename-as-title t)
 
 ;; 自动填充折行
-(setq-default fill-column 100)
+(setq-default fill-column 120)
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
 
@@ -263,25 +234,6 @@
     (with-temp-buffer
       (shell-command "macism com.apple.keylayout.ABC" t))))
 (add-hook 'evil-insert-state-exit-hook 'my/change-input-to-english)
-
-;; title bar 优化
-;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
-;; (setq ns-use-proxy-icon nil)
-;; (setq-default frame-title-format
-;;               '(:eval
-;;                 (format "%s"
-;;                         (cond
-;;                          (buffer-file-truename
-;;                           (concat "(" buffer-file-truename ")"))
-;;                          (dired-directory
-;;                           (concat "{" dired-directory "}"))
-;;                          (t
-;;                           "[no file]")))))
-
-;; 解决 modeline CPU 高负载
-;; 参考：https://github.com/seagle0128/doom-modeline/issues/32
-;; (setq doom-modeline-buffer-file-name-style 'file-name)
 
 ;; show icon for major mode
 (setq doom-modeline-major-mode-icon t)
