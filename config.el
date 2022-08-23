@@ -82,34 +82,13 @@
 (setq python-shell-interpreter "python3"
       flycheck-python-pycompile-executable "python3")
 
-;; 使用xelatex一步生成PDF，不是org-latex-to-pdf-process这个命令
-(setq org-latex-pdf-process
-      '(
-        "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "rm -fr %b.out %b.log %b.tex auto"
-        ))
 ;; 设置默认后端为 `xelatex'
 (setq org-latex-compiler "xelatex")
-(with-eval-after-load 'ox-latex
-  ;; http://orgmode.org/worg/org-faq.html#using-xelatex-for-pdf-export
-  ;; latexmk runs pdflatex/xelatex (whatever is specified) multiple times
-  ;; automatically to resolve the cross-references.
-  (setq org-latex-pdf-process '("latexmk -xelatex -quiet -shell-escape -f %f"))
-  (add-to-list 'org-latex-classes
-               '("elegantpaper"
-                 "\\documentclass[lang=cn]{elegantpaper}
-                 [NO-DEFAULT-PACKAGES]
-                 [PACKAGES]
-                 [EXTRA]"
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-  (setq org-latex-listings 'minted)
-  (add-to-list 'org-latex-packages-alist '("" "minted")))
+;; pandoc
+(setq org-pandoc-options '((standalone . t)
+                           (pdf-engine . "xelatex")
+                           (number-sections . t)))
+(setq org-pandoc-format-extensions '(markdown_github+pipe_tables+raw_html))
 (add-to-list 'image-type-file-name-regexps '("\\.pdf\\'" . imagemagick))
 (add-to-list 'image-file-name-extensions "pdf")
 (setq imagemagick-types-inhibit (remove 'PDF imagemagick-types-inhibit))
