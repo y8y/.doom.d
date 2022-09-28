@@ -42,8 +42,9 @@
 
 ;; (setq doom-font (font-spec :family "Monaco" :size 16))
 ;; (setq doom-theme 'doom-gruvbox)
-;; (setq doom-theme 'doom-monokai-pro)
+;; (setq doom-theme 'doom-solarized-light)
 (setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-dracula)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -92,6 +93,7 @@
 (add-to-list 'image-type-file-name-regexps '("\\.pdf\\'" . imagemagick))
 (add-to-list 'image-file-name-extensions "pdf")
 (setq imagemagick-types-inhibit (remove 'PDF imagemagick-types-inhibit))
+(setq org-image-actual-width t)
 ;; (setq org-image-actual-width 600)
 
 ;; plantuml
@@ -173,6 +175,7 @@
 ;; org-bullets
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (setq org-num-max-level 3)
+(setq org-superstar-headline-bullets-list '("☯" "☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷"))
 
 ;; org-agenda
 (setq org-agenda-weekend-days '(5 6))
