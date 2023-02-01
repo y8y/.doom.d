@@ -41,9 +41,10 @@
        ))
 
 ;; (setq doom-font (font-spec :family "Monaco" :size 16))
-;; (setq doom-theme 'doom-gruvbox)
-;; (setq doom-theme 'doom-solarized-light)
-(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-gruvbox-light)
+(setq doom-theme 'doom-solarized-light)
+;; (setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one-light)
 ;; (setq doom-theme 'doom-dracula)
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -89,6 +90,7 @@
 (setq org-pandoc-options '((standalone . t)
                            (pdf-engine . "xelatex")
                            (number-sections . t)))
+(setq org-pandoc-options-for-latex-pdf '((resource-path . "/Users/chenbing/Library/Mobile Documents/com~apple~CloudDocs/images")))
 (setq org-pandoc-format-extensions '(markdown_github+pipe_tables+raw_html))
 (add-to-list 'image-type-file-name-regexps '("\\.pdf\\'" . imagemagick))
 (add-to-list 'image-file-name-extensions "pdf")
@@ -96,12 +98,27 @@
 (setq org-image-actual-width t)
 ;; (setq org-image-actual-width 600)
 
+;; https://www.gnu.org/software/emacs/manual/html_node/org/Advanced-Export-Configuration.html
+(defun my-org-export-filter-link (text _ _)
+  ;; (message (format "text = %s" text))
+  (string-replace "/Users/chenbing/Library/Mobile Documents/com~apple~CloudDocs/images/" "" text)
+  )
+;; (add-to-list 'org-export-filter-link-functions 'my-org-export-filter-link)
+
 ;; plantuml
 (setq plantuml-jar-path "~/soft/jar/plantuml.jar")
 (setq org-plantuml-jar-path "~/soft/jar/plantuml.jar")
 (setq plantuml-default-exec-mode 'jar)
 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
-(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+;; (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+;; helper function
+(defun my-org-confirm-babel-evaluate (lang _body)
+"Do not ask for confirmation to evaluate code for specified languages."
+  (member lang '("plantuml")))
+;; trust certain code as being safe
+(setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+;; automatically show the resulting image
+(add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
 
 ;; org bold selected word
 (defun bold-region-or-point ()
@@ -216,6 +233,7 @@
     (with-temp-buffer
       (shell-command "macism com.apple.keylayout.ABC" t))))
 (add-hook 'evil-insert-state-exit-hook 'my/change-input-to-english)
+(add-hook 'minibuffer-exit-hook 'my/change-input-to-english)
 
 ;; show icon for major mode
 (setq doom-modeline-major-mode-icon t)
