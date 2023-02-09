@@ -1,0 +1,34 @@
+#+title: Elfeed
+
+* blogs :elfeed:
+** 编程 :program:
+*** [[https://feeds.feedburner.com/ruanyifeng][阮一峰]]
+*** https://insights.thoughtworks.cn/feed/
+*** https://draveness.me/feed.xml
+*** https://kaopubear.top/blog/atom.xml
+*** https://tech.youzan.com/rss/
+*** http://blog.codingnow.com/atom.xml
+*** http://www.raychase.net/feed
+*** http://www.nginx.cn/feed
+*** https://tech.meituan.com/feed/
+*** https://coolshell.cn/feed
+*** http://blog.devtang.com/atom.xml
+*** https://www.changhai.org/feed.xml
+*** http://www.waerfa.com/feed
+*** http://www.woshipm.com/feed
+*** https://blogs.microsoft.com/ai/feed/
+*** https://www.msra.cn/feed
+*** https://ai.googleblog.com/
+*** https://www.zhihu.com/rss
+*** https://www.hankcs.com/feed/
+*** https://yongyuan.name/blog/feed.xml
+*** http://jalammar.github.io/
+*** https://www.deeplearn.me/
+** emacs
+*** https://sachachua.com/blog/feed/
+** 经济 :economic:
+*** https://www.profgalloway.com/feed/
+** 其他 :other:
+*** https://wangyurui.com/feed.xml
+*** https://jesor.me/feed.xml
+*** https://wangyurui.com/feed.xml

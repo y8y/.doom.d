@@ -237,3 +237,14 @@
 
 ;; show icon for major mode
 (setq doom-modeline-major-mode-icon t)
+
+;; javascript
+(setq js-indent-level 2)
+
+;; Configure Elfeed with org mode
+(use-package elfeed-org
+  :ensure t
+  :config
+  (elfeed-org)
+  (setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
+  (setq-default elfeed-search-filter "@4-week-ago +unread "))
