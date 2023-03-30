@@ -42,8 +42,8 @@
 
 ;; (setq doom-font (font-spec :family "Monaco" :size 16))
 ;; (setq doom-theme 'doom-gruvbox-light)
-(setq doom-theme 'doom-solarized-light)
-;; (setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-solarized-light)
+(setq doom-theme 'doom-one)
 ;; (setq doom-theme 'doom-one-light)
 ;; (setq doom-theme 'doom-dracula)
 
@@ -218,9 +218,23 @@
 ;;   (setq super-save-idle-duration 5))
 
 ;; disable company for org
-(setq company-global-modes '(not org-mode sh-mode))
-(setq company-minimum-prefix-length 3)
+;; (setq company-global-modes '(not org-mode sh-mode))
+(setq company-minimum-prefix-length 2)
 (setq company-dabbrev-other-buffers nil)
+(setq company-dabbrev-ignore-case t)
+
+;; https://emacs.stackexchange.com/questions/9835/how-can-i-prevent-company-mode-completing-numbers
+;; 1. remove those non-ANSII candidates.
+;; 2. remove any completion containing numbers.
+;; 3. remove any candidate which is longer than 15 in org-mode.
+(defun my-company-filter (candidates)
+  (cl-remove-if (lambda (c)
+                  (or (string-match-p "[^[:ascii:]]+" c)
+                      (string-match-p "[0-9]+" c)
+                      (if (equal major-mode "org")
+                          (>= (length c) 15))))
+                candidates))
+(setq company-transformers '(my-company-filter))
 
 ;; jsx support
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
@@ -248,3 +262,7 @@
   (elfeed-org)
   (setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
   (setq-default elfeed-search-filter "@4-week-ago +unread "))
+
+;; https://emacs.stackexchange.com/questions/42006/trouble-with-org-mode
+;; 解决 emacs 29 问题
+(setq org-element-use-cache nil)

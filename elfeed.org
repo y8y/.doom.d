@@ -23,12 +23,13 @@
 *** https://www.hankcs.com/feed/
 *** https://yongyuan.name/blog/feed.xml
 *** http://jalammar.github.io/
-*** https://www.deeplearn.me/
-** emacs
+*** https://www.deeplearn.me/feed/
+** emacs :emacs:
 *** https://sachachua.com/blog/feed/
 ** 经济 :economic:
 *** https://www.profgalloway.com/feed/
+*** https://rsshub.app/eeo/17
 ** 其他 :other:
-*** https://wangyurui.com/feed.xml
 *** https://jesor.me/feed.xml
 *** https://wangyurui.com/feed.xml
+*** http://feeds.feedburner.com/zhihu-daily
