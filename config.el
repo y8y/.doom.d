@@ -41,9 +41,9 @@
        ))
 
 ;; (setq doom-font (font-spec :family "Monaco" :size 16))
-;; (setq doom-theme 'doom-gruvbox-light)
+(setq doom-theme 'tsdh-light)
 ;; (setq doom-theme 'doom-solarized-light)
-(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one)
 ;; (setq doom-theme 'doom-one-light)
 ;; (setq doom-theme 'doom-dracula)
 
@@ -113,7 +113,7 @@
 ;; (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
 ;; helper function
 (defun my-org-confirm-babel-evaluate (lang _body)
-"Do not ask for confirmation to evaluate code for specified languages."
+  "Do not ask for confirmation to evaluate code for specified languages."
   (member lang '("plantuml")))
 ;; trust certain code as being safe
 (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
@@ -218,7 +218,7 @@
 ;;   (setq super-save-idle-duration 5))
 
 ;; disable company for org
-;; (setq company-global-modes '(not org-mode sh-mode))
+(setq company-global-modes '(not org-mode sh-mode))
 (setq company-minimum-prefix-length 2)
 (setq company-dabbrev-other-buffers nil)
 (setq company-dabbrev-ignore-case t)
