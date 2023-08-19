@@ -59,9 +59,9 @@
 (package! sqlformat)
 (package! org-bullets)
 ;; (package! super-save)
-(package! rjsx-mode)
+;; (package! rjsx-mode)
 
 ;; org roam
-(package! org-roam-ui)
+;; (package! org-roam-ui)
 
 (package! format-all)

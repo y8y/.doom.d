@@ -132,7 +132,7 @@
        ;;idris             ;
        ;;json              ; At least it ain't XML
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
-       javascript        ; all(hope(abandon(ye(who(enter(here))))))
+       ;; javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        latex             ; writing papers in Emacs has never been so fun
@@ -145,7 +145,9 @@
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org +pretty +journal -dragndrop
-            +hugo +roam2 +pandoc
+            +hugo
+            ;; +roam2
+            +pandoc
             +present)      ; organize your plain life in plain text
        ;;perl              ; write code no one else can comprehend
        ;; php               ; perl's insecure younger brother

@@ -29,22 +29,17 @@
 (cond ((display-graphic-p)
        ;; 编辑器字体
        (set-face-attribute 'default nil :font "Sarasa Fixed SC 18")
-       (custom-set-faces
-        ;; custom-set-faces was added by Custom.
-        ;; If you edit it by hand, you could mess it up, so be careful.
-        ;; Your init file should contain only one such instance.
-        ;; If there is more than one, they won't work right.
-        '(default ((t :family "Sarasa Fixed SC" :size 16))))
-       (dolist (charset '(kana han cjk-misc bopomofo))
-         (set-fontset-font (frame-parameter nil 'font)
-                           charset (font-spec :family "Sarasa Fixed SC" :size 18)))
+       ;; (custom-set-faces
+       ;; '(default ((t :family "Sarasa Fixed SC" :size 18))))
+       ;; (dolist (charset '(kana han cjk-misc bopomofo))
+       ;;   (set-fontset-font (frame-parameter nil 'font)
+       ;;                     charset (font-spec :family "Sarasa Fixed SC" :size 18)))
        ))
 
-;; (setq doom-font (font-spec :family "Monaco" :size 16))
-(setq doom-theme 'tsdh-light)
+;; (setq doom-theme 'tsdh-light)
 ;; (setq doom-theme 'doom-solarized-light)
-;; (setq doom-theme 'doom-one)
-;; (setq doom-theme 'doom-one-light)
+(setq doom-theme 'doom-acario-light)
+;; (setq doom-theme 'doom-Iosvkem)
 ;; (setq doom-theme 'doom-dracula)
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -54,7 +49,6 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
-
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -75,7 +69,7 @@
 
 (load! "kbd")
 
-(load! "roam")
+;; (load! "roam")
 
 ;; 最大化窗口
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -237,8 +231,8 @@
 (setq company-transformers '(my-company-filter))
 
 ;; jsx support
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
+;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
 
 ;; 自动切换输入法
 (defun my/change-input-to-english ()
@@ -253,7 +247,7 @@
 (setq doom-modeline-major-mode-icon t)
 
 ;; javascript
-(setq js-indent-level 2)
+;; (setq js-indent-level 2)
 
 ;; Configure Elfeed with org mode
 (use-package elfeed-org
@@ -265,4 +259,4 @@
 
 ;; https://emacs.stackexchange.com/questions/42006/trouble-with-org-mode
 ;; 解决 emacs 29 问题
-(setq org-element-use-cache nil)
+;; (setq org-element-use-cache nil)
