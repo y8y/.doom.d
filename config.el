@@ -26,19 +26,21 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 
-(cond ((display-graphic-p)
-       ;; 编辑器字体
-       (set-face-attribute 'default nil :font "Sarasa Fixed SC 18")
-       ;; (custom-set-faces
-       ;; '(default ((t :family "Sarasa Fixed SC" :size 18))))
-       ;; (dolist (charset '(kana han cjk-misc bopomofo))
-       ;;   (set-fontset-font (frame-parameter nil 'font)
-       ;;                     charset (font-spec :family "Sarasa Fixed SC" :size 18)))
-       ))
+;; 设置字体
+(setq doom-font (font-spec :family "Fira Code" :size 14)
+      doom-variable-pitch-font (font-spec :family "Fira Code" :size 14)
+      doom-big-font (font-spec :family "Fira Code" :size 20))
+
+;; 可选：设置中文字体
+(setq doom-symbol-font (font-spec :family "Sarasa Fixed SC"))
+
+;; 可选：设置行间距
+(setq-default line-spacing 0.2)
 
 ;; (setq doom-theme 'tsdh-light)
 ;; (setq doom-theme 'doom-solarized-light)
 (setq doom-theme 'doom-acario-light)
+;; (setq doom-theme 'doom-opera-light)
 ;; (setq doom-theme 'doom-Iosvkem)
 ;; (setq doom-theme 'doom-dracula)
 
