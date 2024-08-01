@@ -27,15 +27,13 @@
 ;; `load-theme' function. This is the default:
 
 ;; 设置字体
-(setq doom-font (font-spec :family "Fira Code" :size 14)
-      doom-variable-pitch-font (font-spec :family "Fira Code" :size 14)
-      doom-big-font (font-spec :family "Fira Code" :size 20))
-
-;; 可选：设置中文字体
-(setq doom-symbol-font (font-spec :family "Sarasa Fixed SC"))
+(setq doom-font (font-spec :family "Sarasa Fixed SC" :size 18 :weight 'regular)
+     doom-variable-pitch-font (font-spec :family "Sarasa Fixed SC" :size 18 :weight 'regular)
+     doom-big-font (font-spec :family "Sarasa Fixed SC" :size 20 :weight 'regular)
+     doom-symbol-font (font-spec :family "Sarasa Fixed SC" :size 18 :weight 'regular))
 
 ;; 可选：设置行间距
-(setq-default line-spacing 0.2)
+;; (setq-default line-spacing 0.1)
 
 ;; (setq doom-theme 'tsdh-light)
 ;; (setq doom-theme 'doom-solarized-light)
@@ -258,7 +256,3 @@
   (elfeed-org)
   (setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
   (setq-default elfeed-search-filter "@4-week-ago +unread "))
-
-;; https://emacs.stackexchange.com/questions/42006/trouble-with-org-mode
-;; 解决 emacs 29 问题
-;; (setq org-element-use-cache nil)
