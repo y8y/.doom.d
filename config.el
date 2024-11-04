@@ -263,3 +263,6 @@
     `(ivy-current-match :background ,(doom-color 'blue)
                         :foreground ,(doom-color 'bg)
                         :weight bold)))
+
+;; org 模式开启折行显示
+(add-hook 'org-mode-hook 'visual-line-mode)
