@@ -250,12 +250,12 @@
 ;; (setq js-indent-level 2)
 
 ;; Configure Elfeed with org mode
-(use-package elfeed-org
-  :ensure t
-  :config
-  (elfeed-org)
-  (setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
-  (setq-default elfeed-search-filter "@4-week-ago +unread "))
+;; (use-package elfeed-org
+;;   :ensure t
+;;   :config
+;;   (elfeed-org)
+;;   (setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
+;;   (setq-default elfeed-search-filter "@4-week-ago +unread "))
 
 ;; 修改 minibuffer 中选中行的背景色
 (after! ivy
