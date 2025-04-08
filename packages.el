@@ -65,3 +65,4 @@
 ;; (package! org-roam-ui)
 
 (package! format-all)
+(package! transient :recipe (:branch "main"))

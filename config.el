@@ -37,7 +37,8 @@
 
 ;; (setq doom-theme 'tsdh-light)
 ;; (setq doom-theme 'doom-solarized-light)
-(setq doom-theme 'doom-acario-light)
+;; (setq doom-theme 'doom-acario-light)
+(setq doom-theme 'doom-gruvbox-light)
 ;; (setq doom-theme 'doom-opera-light)
 ;; (setq doom-theme 'doom-Iosvkem)
 ;; (setq doom-theme 'doom-dracula)
