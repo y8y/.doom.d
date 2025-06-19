@@ -6,7 +6,8 @@
  '(ansi-color-names-vector
    ["#282c34" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
  '(custom-safe-themes
-   '("ffafb0e9f63935183713b204c11d22225008559fa62133a69848835f4f4a758c"
+   '("9e36779f5244f7d715d206158a3dade839d4ccb17f6a2f0108bf8d476160a221"
+     "ffafb0e9f63935183713b204c11d22225008559fa62133a69848835f4f4a758c"
      "48042425e84cd92184837e01d0b4fe9f912d875c43021c3bcb7eeb51f1be5710"
      "8c7e832be864674c220f9a9361c851917a93f921fedb7717b1b5ece47690c098"
      "10e5d4cc0f67ed5cafac0f4252093d2119ee8b8cb449e7053273453c1a1eb7cc"
@@ -68,9 +69,9 @@
          (cons 320 "#6f4e52") (cons 340 "#5B6268") (cons 360 "#5B6268")))
  '(vc-annotate-very-old-color nil)
  '(warning-suppress-log-types '((before-save-hook))))
-(custom-set-faces
+;;(custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t :family "Sarasa Fixed SC" :size 16))))
+ ;;'(default ((t :family "Sarasa Fixed SC" :size 16))))
